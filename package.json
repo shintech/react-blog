@@ -1,9 +1,9 @@
 {
-  "name": "react-seed",
-  "version": "0.0.1",
-  "description": "Shintech React Seed",
+  "name": "react-blog",
+  "version": "0.0.2",
+  "description": "react-blog",
   "main": "build/server.js",
-  "repository": "https://github.com/shintech/react-seed",
+  "repository": "https://github.com/shintech/react-blog",
   "author": "Michael Prather",
   "license": "MIT",
   "scripts": {
