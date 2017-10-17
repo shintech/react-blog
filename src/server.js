@@ -33,6 +33,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 app.use('/css', express.static(path.join(_parentDir, 'node_modules', 'bootstrap', 'dist', 'css')))
+app.use('/images', express.static(path.join(__dirname, 'resources', 'images')))
 app.use('/fonts', express.static(path.join(_parentDir, 'node_modules', 'bootstrap', 'fonts')))
 app.use(express.static(path.join(__dirname, 'static')))
 
