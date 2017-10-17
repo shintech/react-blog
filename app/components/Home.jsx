@@ -5,7 +5,7 @@ import {capitalizedFirstLetter} from '../../utilities'
 export default class Home extends React.Component {
   render () {
     return (
-      <main>
+      <div>
         <h1>{capitalizedFirstLetter(faker.fake('{{lorem.word}}'))}</h1>
         <div className='row'>
           <img className='col-md-4' src='images/ninja.jpg' />
@@ -20,7 +20,7 @@ export default class Home extends React.Component {
             <p>{faker.fake('{{lorem.paragraphs}}')}</p>
           </article>
         </div>
-      </main>
+      </div>
     )
   }
 }
