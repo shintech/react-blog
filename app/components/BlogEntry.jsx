@@ -14,7 +14,7 @@ export default class BlogEntry extends React.Component {
 
   render () {
     return (
-      <div className='blog-entry container-fluid'>
+      <article className='blog-entry container-fluid'>
         <div className='row'>
           <div className='col-md-9'>
             <h2>{this.state.title}</h2>
@@ -26,7 +26,7 @@ export default class BlogEntry extends React.Component {
           </div>
         </div>
         <hr />
-      </div>
+      </article>
     )
   }
 }

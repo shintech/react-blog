@@ -3,7 +3,6 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import chalk from 'chalk'
 import path from 'path'
-import morgan from 'morgan'
 import winston from 'winston-color'
 import favicon from 'serve-favicon'
 import init from './db'
@@ -23,7 +22,7 @@ const options = {
 
 options.db = init(options)
 
-const { app, port, environment, logger } = options
+const { app, port, logger } = options
 
 const server = http.Server(app)
 const router = getRouter(options)
@@ -37,14 +36,22 @@ app.use('/images', express.static(path.join(__dirname, 'resources', 'images')))
 app.use('/fonts', express.static(path.join(_parentDir, 'node_modules', 'bootstrap', 'fonts')))
 app.use(express.static(path.join(__dirname, 'static')))
 
-if (environment !== 'test') {
-  app.use(morgan('dev'))
-}
-
 app.use('/api', router)
 
+app.use(function (req, res, next) {
+  res.status(400)
+  res.json({
+    status: 'error',
+    message: '404: Not Found'
+  })
+})
+
+app.on('error', err => {
+  logger.error(err)
+})
+
 server.on('request', (req, res) => {
-  logger.info(req.method, req.url)
+  logger.info(req.method, req.url, res.statusCode)
 })
 
 server.on('listening', () => {

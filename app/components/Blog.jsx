@@ -20,11 +20,11 @@ export default class Blog extends React.Component {
 
   render () {
     return (
-      <div>
+      <main>
         {this.state.entries.map(entry =>
           <BlogEntry key={entry.id} entry={entry} />
         )}
-      </div>
+      </main>
     )
   }
 }
