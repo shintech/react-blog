@@ -22,7 +22,7 @@ function getData (callback) {
   for (var i = 10; i > 0; i--) {
     var obj = {
       image: faker.fake('{{image.image}}'),
-      content: faker.fake('{{lorem.paragraph}}'),
+      content: faker.fake('{{lorem.paragraphs}}'),
       title: faker.fake('{{lorem.sentence}}')
     }
     arr.push(obj)
